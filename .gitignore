@@ -1,0 +1,8 @@
+*.tfstate
+*.tfvars
+*.tfstate.*
+*.lock.*
+.terraform
+gcp-credentials.json
+
+*.pem
