@@ -8,3 +8,4 @@ resource "aws_instance" "ubuntu-instance" {
   }
   user_data = file("userdata.sh")
 }
+#terraform remote exec 

@@ -16,11 +16,11 @@
       ignore_errors: yes
 
     - name: build docker image using the Dockerfile
-      command: docker build -t hichem123/comingsoon-page .
+      command: docker build -t hichem123/comingsoon-page:{{ tag }} .
 
     - name: Push Image to dockerhub
-      command: docker push hichem123/comingsoon-page
+      command: docker push hichem123/comingsoon-page:{{ tag }}
 
     - name: run container
-      command: docker run -d --name web-container -p 5000:80 hichem123/comingsoon-page
+      command: docker run -d --name web-container -p 5000:80 hichem123/comingsoon-page:{{ tag }}
 

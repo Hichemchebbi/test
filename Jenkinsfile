@@ -3,6 +3,7 @@ pipeline {
 
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        SHORT_COMMIT = "${GIT_COMMIT[0..7]}"
 	}
     stages {
         stage('Docker Login') {
@@ -13,7 +14,8 @@ pipeline {
         }
         stage('Build & push Dockerfile') {
             steps {
-                sh 'ansible-playbook ansible-playbook.yml'
+                
+                sh 'ansible-playbook ansible-playbook.yml --extra-vars tag="$SHORT_COMMIT"'
                 
             }
         }
