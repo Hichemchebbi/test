@@ -22,5 +22,5 @@
       command: docker push hichem123/comingsoon-page:{{ tag }}
 
     - name: run container
-      command: docker run -d --name web-container -p 5000:80 hichem123/comingsoon-page:{{ tag }}
+      command: docker run -d --restart=always --name web-container -p 5000:80 hichem123/comingsoon-page:{{ tag }}
 
