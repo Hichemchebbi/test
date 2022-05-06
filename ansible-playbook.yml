@@ -15,6 +15,7 @@
       command: docker rmi hichem123/comingsoon-page
       ignore_errors: yes
 
+
     - name: build docker image using the Dockerfile
       command: docker build -t hichem123/comingsoon-page:{{ tag }} .
 
