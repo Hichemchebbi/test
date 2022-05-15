@@ -19,21 +19,13 @@ pipeline {
                 
             }
         }
-        stage('Deploy') {
-            steps {
-                withCredentials([[
-                  $class: 'AmazonWebServicesCredentialsBinding',
-                  credentialsId: "aws-credentials",
-                  accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-                  secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-                  ]]) {
-                  sh """
-                  who
-                  kubectl -n comingsoon apply -f service.yaml
-                  kubectl -n comingsoon apply -f deployment.yaml
-                  """
-                }
-            }
-    }
+        stage ('K8S Deploy') {
+       
+                kubernetesDeploy(
+                    configs: 'deployment.yaml',
+                    kubeconfigId: 'K8S',
+                    enableConfigSubstitution: true
+                    )               
+        }
     }
 }
