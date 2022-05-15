@@ -23,6 +23,7 @@ pipeline {
             steps {
                 sh """
 		export AWS_SHARED_CREDENTIALS_FILE=/tmp/credentials
+		export KUBECONFIG=/tmp/config
                 kubectl -n comingsoon apply -f deployment.yaml
                 kubectl -n comingsoon apply -f services.yaml
 
