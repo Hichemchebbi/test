@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: web-container
-        image: hichem123/comingsoon-page::TAG
+        image: hichem123/comingsoon-page:TAG
         ports:
         - containerPort: 80
