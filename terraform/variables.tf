@@ -14,3 +14,7 @@ variable "ami" {
 variable "public_key"{
     description = "ssh public key"
 }
+variable "ip" {
+  type    = string 
+  description = "ip @"
+}

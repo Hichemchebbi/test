@@ -1,0 +1,7 @@
+server {
+
+	server_name www  www.3.72.186.14.nip.io;
+        location / {
+           proxy_pass http://localhost:5000;
+        }
+}
