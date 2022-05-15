@@ -22,6 +22,7 @@ pipeline {
          stage ('Deploy') {
             steps {
                 sh """
+		export AWS_SHARED_CREDENTIALS_FILE=/tmp/credentials
                 kubectl get ns --kubeconfig /tmp/config
 
               """ 
