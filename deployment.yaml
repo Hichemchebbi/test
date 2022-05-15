@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comingsoon-page-img-deployment
+  namespace: comingsoon
+  labels:
+        app: comingsoon-page
+spec:
+  selector:
+    matchLabels:
+      app: comingsoon-page
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: comingsoon-page
+    spec:
+      containers:
+      - name: web-container
+        image: hichem123/comingsoon-page::{{ tag }}
+        ports:
+        - containerPort: 80

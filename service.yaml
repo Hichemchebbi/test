@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: comingsoon-page
+  namespace: comingsoon
+  labels:
+        app: comingsoon-page
+spec: 
+  selector:
+    app: comingsoon-page
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
