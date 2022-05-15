@@ -20,12 +20,19 @@ pipeline {
             }
         }
         stage ('K8S Deploy') {
-       
+	    steps {
                 kubernetesDeploy(
                     configs: 'deployment.yaml',
                     kubeconfigId: 'K8S',
                     enableConfigSubstitution: true
-                    )               
+		)   
+		  {
+                  sh """
+                  kubectl -n comingsoon apply -f deployment.yaml
+                  kubectl -n comingsoon apply -f services.yaml
+                  """
+                }	    
+	    }          
         }
     }
 }
