@@ -26,6 +26,7 @@ pipeline {
 		export KUBECONFIG=/tmp/config
                 kubectl -n comingsoon apply -f deployment.yaml
                 kubectl -n comingsoon apply -f service.yaml
+		kubectl -n comingsoon apply -f ingress.yaml
 
               """ 
 	    }          
