@@ -24,6 +24,7 @@ pipeline {
                 sh """
 		export AWS_SHARED_CREDENTIALS_FILE=/tmp/credentials
 		export KUBECONFIG=/tmp/config
+		sed -i "s/TAG/$tag/g" deployment.yaml
                 kubectl -n comingsoon apply -f deployment.yaml
                 kubectl -n comingsoon apply -f service.yaml
 		kubectl -n comingsoon apply -f ingress.yaml
