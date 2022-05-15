@@ -28,6 +28,7 @@ pipeline {
                   secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                   ]]) {
                   sh """
+                  who
                   kubectl -n comingsoon apply -f service.yaml
                   kubectl -n comingsoon apply -f deployment.yaml
                   """
